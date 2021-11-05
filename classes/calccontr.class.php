@@ -69,15 +69,16 @@ class CalcContr extends Calc
     {
         $result = true;
 
-        if (count($this->currencies) >= count($this->dataArray['currTypes']))
+        if (count($this->currencies) < count($this->dataArray['currTypes']))
         {
             $result = false;
+
             return $result;
         }
 
-        foreach ($this->currencies as $key => $value)
+        foreach ($this->dataArray['currTypes'] as $value)
         {
-            if (!in_array($key, $this->dataArray['currTypes']))
+            if (!key_exists($value, $this->currencies))
             {
                 $result = false;
             }
