@@ -69,7 +69,7 @@ class CalcContr extends Calc
     {
         $result = true;
 
-        if (count($this->currencies) !== count($this->dataArray['currTypes']))
+        if (count($this->currencies) >= count($this->dataArray['currTypes']))
         {
             $result = false;
             return $result;
